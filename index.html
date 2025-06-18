@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hurst Enterprises Clone - Horizontal Slider (Fixed)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <header id="page-header">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="contact-info">
+                    <a href="mailto:alex@hurstenterprises.llc"><i class="fas fa-envelope"></i>
+                        alex@hurstenterprises.llc</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav" id="main-navbar">
+            <div class="container">
+                <a href="#" class="logo">
+                    <img src="/hero/logo/logo-hanvesting.png" alt="Hurst Enterprises Logo">
+                    <!-- Apna logo yahan daalein -->
+
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Portfolios</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="#" class="btn btn-outline">Sign In</a>
+                    <a href="#" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation Panel -->
+    <div class="mobile-nav-panel" id="mobile-nav">
+        <button class="mobile-menu-close" id="mobile-menu-close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-nav-links">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolios</a></li>
+            <li><a href="#">Contacts</a></li>
+        </ul>
+        <div class="mobile-auth-buttons">
+            <a href="#" class="btn btn-outline">Sign In</a>
+            <a href="#" class="btn btn-primary">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- Hero Section with Horizontal Slider -->
+    <section class="hero-slider-wrapper" id="hero-slider">
+        <div class="hero-slides-container">
+            <!-- Slides will be dynamically inserted here by JavaScript -->
+        </div>
+        <!-- Optional: Slider navigation arrows (uncomment if you want to use them) -->
+        <!-- 
+        <button class="slider-arrow prev" id="hero-slider-prev" aria-label="Previous Slide"><</button>
+        <button class="slider-arrow next" id="hero-slider-next" aria-label="Next Slide">></button>
+        -->
+    </section>
+
+    <section class="trusted-by-section">
+        <div class="container">
+            <!-- Aap yahan ek heading bhi daal sakte hain, e.g., <h2>Trusted By</h2> -->
+            <div class="logos-slider">
+                <div class="logos-track">
+                    <!-- Pehla Set Logos ka -->
+                    <div class="logo-item">
+                        <img src="/hero/client/client1.png" alt="Boosterio">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/hero/client/client2.png" alt="SEO Mind">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/hero/client/client3.png" alt="IBM Media">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/hero/client/client4.png" alt="Green Host">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/hero/client/client5.png" alt="Yodgy">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/hero/client/client6.png" alt="Atomic SEO">
+                    </div>
+                    <!-- Doosra Set (Pehle Set ka Duplicate - infinite scroll ke liye) -->
+                    <div class="logo-item">
+                        <img src="/hero/client/client1.png" alt="Boosterio">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/hero/client/client2.png" alt="SEO Mind">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/hero/client/client3.png" alt="IBM Media">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/hero/client/client4.png" alt="Green Host">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/hero/client/client5.png" alt="Yodgy">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/hero/client/client6.png" alt="Atomic SEO">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about-us-section">
+        <div class="container">
+            <div class="about-us-grid">
+                <div class="about-text-content">
+                    <span class="section-tag">ABOUT US</span>
+                    <h2>Your Creative Partner in Digital Transformation</h2>
+                    <p>Hurst Enterpriseis the go-to partner for brands looking to make their mark through impactful
+                        design, digital experiences, and strategic innovation. We empower businesses of all sizes to
+                        elevate their presence through tailored solutions in design, development, and consultation.</p>
+
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon-wrapper">
+                                <i class="fas fa-award"></i> <!-- Font Awesome icon for Expertise -->
+                            </div>
+                            <h3 class="interactive-underline">Our Expertise</h3>
+                            <p>A dedicated team of creative minds and digital experts.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon-wrapper">
+                                <i class="fas fa-cogs"></i> <!-- Font Awesome icon for Support/Settings -->
+                            </div>
+                            <h3 class="interactive-underline">Support You Can Trust</h3>
+                            <p>We're here to bring your boldest ideas to life, every step of the way.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image-content">
+                    <div class="about-image-collage">
+                        <img src="/hero/about/abt-img-1.jpg" alt="Team working in an office" class="main-image">
+                        <img src="/hero/about/abt-img-2.jpg" alt="People collaborating"
+                            class="overlay-image image-top-right">
+                        <img src="/hero/about/abt-img-3.jpg" alt="Modern office meeting room"
+                            class="overlay-image image-bottom-right">
+                    </div>
+                    <a href="#" class="learn-more-link interactive-underline">
+                        <i class="fas fa-long-arrow-alt-right"></i> LEARN MORE ABOUT US
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="why-choose-us-section dark-theme">
+        <div class="container">
+
+            <h2>Bring Your Vision to Life <br>with a Partner You Can Trust</h2>
+
+            <div class="choose-us-grid">
+                <!-- Card 1: Creative Strategy -->
+                <div class="choose-us-card">
+                    <span class="card-bg-number">01</span>
+                    <div class="card-content">
+                        <h3>Creative Strategy</h3>
+                        <p>We dive deep into understanding your brand and goals, designing experiences as unique as your
+                            vision.</p>
+                        <a href="#" class="learn-more-card">
+                            <i class="fas fa-long-arrow-alt-right arrow-icon"></i> LEARN MORE
+                        </a>
+                    </div>
+                    <div class="card-icon-container">
+                        <div class="card-icon-bg">
+                            <i class="fas fa-desktop"></i> <!-- Example Icon -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: End-to-End Product Design -->
+                <div class="choose-us-card">
+                    <span class="card-bg-number">02</span>
+                    <div class="card-content">
+                        <h3>End-to-End Product Design</h3>
+                        <p>From concept to launch, we help you prototype, test, and refine, ensuring your ideas
+                            resonate.</p>
+                        <a href="#" class="learn-more-card">
+                            <i class="fas fa-long-arrow-alt-right arrow-icon"></i> LEARN MORE
+                        </a>
+                    </div>
+                    <div class="card-icon-container">
+                        <div class="card-icon-bg">
+                            <i class="fas fa-pencil-ruler"></i> <!-- Example Icon -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Reliable Collaboration -->
+                <div class="choose-us-card">
+                    <span class="card-bg-number">03</span>
+                    <div class="card-content">
+                        <h3>Reliable Collaboration</h3>
+                        <p>We believe in true partnership—supporting and uplifting your vision every step of the way.
+                        </p>
+                        <a href="#" class="learn-more-card">
+                            <i class="fas fa-long-arrow-alt-right arrow-icon"></i> LEARN MORE
+                        </a>
+                    </div>
+                    <div class="card-icon-container">
+                        <div class="card-icon-bg">
+                            <i class="fas fa-users-cog"></i> <!-- Example Icon -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Timely Delivery -->
+                <div class="choose-us-card">
+                    <span class="card-bg-number">04</span>
+                    <div class="card-content">
+                        <h3>Timely Delivery</h3>
+                        <p>With streamlined processes and a dedicated team, we deliver on time, every time, without
+                            compromising quality.</p>
+                        <a href="#" class="learn-more-card">
+                            <i class="fas fa-long-arrow-alt-right arrow-icon"></i> LEARN MORE
+                        </a>
+                    </div>
+                    <div class="card-icon-container">
+                        <div class="card-icon-bg">
+                            <i class="fas fa-shield-alt"></i> <!-- Example Icon -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <!-- Left Card -->
+            <div class="stat-card left-card animate-on-scroll slide-in-left">
+                <!-- User yahan CSS mein background-image lagayega -->
+                <div class="stat-card-overlay"></div>
+                <div class="stat-card-content">
+                    <div class="stat-value">
+                        <span class="stat-number" data-target="500">0</span>
+                        <span class="plus-sign">+</span>
+                    </div>
+                    <h3>Successful Projects</h3>
+                    <p>From startups to established enterprises, we've brought hundreds of ideas to life with
+                        purpose-driven solutions.</p>
+                </div>
+                <div class="decorative-shape shape-blue"></div>
+            </div>
+
+            <!-- Right Card -->
+            <div class="stat-card right-card animate-on-scroll slide-in-right">
+                <!-- User yahan CSS mein background-image lagayega -->
+                <div class="stat-card-overlay"></div>
+                <div class="stat-card-content">
+                    <div class="stat-value">
+                        <span class="stat-number" data-target="40">0</span>
+                        <span class="plus-sign">+</span>
+                    </div>
+                    <h3>Years of Expertise</h3>
+                    <p>Our decade of experience helps us deliver quality and insight to every project, every time.</p>
+                </div>
+                <div class="decorative-shape shape-purple"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="services-section">
+        <div class="container">
+
+            <!-- Heading Centered -->
+            <h5 class="subheading">OUR SERVICE</h5>
+            <h2 class="heading">
+                Transforming Ideas into <br>
+                <strong>Powerful Digital Experiences</strong>
+            </h2>
+
+            <!-- Grid Start -->
+            <div class="services-grid">
+
+                <!-- Row 1 -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-code"></i></div>
+                    <h3>Web Development</h3>
+                    <p>We create reliable, fast and user-focused websites that make a statement.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>UI/UX Design</h3>
+                    <p>We craft intuitive and beautiful interfaces with seamless user experience.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Branding & Identity</h3>
+                    <p>We help define and amplify your brand’s identity for a lasting impression.</p>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-chalkboard"></i></div>
+                    <h3>Pitch Deck Design</h3>
+                    <p>Visually engaging pitch decks that capture attention and impact.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Digital Marketing</h3>
+                    <p>We grow your brand online through data-driven digital campaigns.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-certificate"></i></div>
+                    <h3>Product Design & Prototyping</h3>
+                    <p>Transforming ideas into testable, launch-ready product designs.</p>
+                </div>
+
+            </div>
+            <!-- Grid End -->
+
+        </div>
+    </section>
+
+
+
+    <!-- Scroll to top button (optional, jaisa screenshot mein hai) -->
+    <button id="scrollToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

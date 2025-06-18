@@ -1,0 +1,1037 @@
+/* Basic Reset & Global Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { line-height: 1.6; color: #333; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* Top Bar, Nav, Mobile Nav, Sticky Header - Same as previous stable version */
+.top-bar { background-color: #1a237e; color: #e0e0e0; padding: 8px 0; font-size: 0.9em; }
+.top-bar .social-icons a, .top-bar .contact-info a { margin-right: 15px; color: #e0e0e0; transition: color 0.3s ease; }
+.top-bar .social-icons a:last-child { margin-right: 0; }
+.top-bar .social-icons a:hover, .top-bar .contact-info a:hover { color: #ffffff; }
+.top-bar .contact-info i { margin-right: 5px; }
+.main-nav { background-color: #ffffff; padding: 15px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; z-index: 1000; transition: all 0.3s ease-in-out; }
+.main-nav .container { height: 60px; }
+.logo { display: flex; align-items: center; }
+.logo img { height: 50px; margin-right: 10px; }
+.logo span { font-size: 1.2em; font-weight: bold; color: #1a237e; }
+.nav-links { display: flex; }
+.nav-links li { margin-left: 35px; }
+.nav-links a { color: #333; font-weight: 500; padding-bottom: 8px; position: relative; transition: color 0.3s ease; overflow: hidden; }
+.nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background-color: #1976d2; transition: width 0.35s ease-in-out; }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.nav-links a:hover, .nav-links a.active { color: #1976d2; }
+.btn { padding: 10px 20px; border-radius: 5px; font-weight: 500; transition: all 0.3s ease; text-align: center; }
+.btn-outline { border: 1px solid #1976d2; color: #1976d2; margin-right: 10px; }
+.btn-outline:hover { background-color: #1976d2; color: #fff; }
+.btn-primary { background-color: #1976d2; color: #fff; border: 1px solid #1976d2; }
+.btn-primary:hover { background-color: #f0f1f2; border-color: #1565c0; color:#1976d2 ; }
+.mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.8em; color: #1a237e; cursor: pointer; }
+body.scrolled .top-bar { display: none; }
+body.scrolled .main-nav { position: fixed; top: 0; left: 0; width: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+.mobile-nav-panel { position: fixed; top: 0; right: -300px; width: 300px; max-width: 80%; height: 100vh; background-color: #fff; box-shadow: -2px 0 5px rgba(0,0,0,0.2); z-index: 1100; padding: 60px 20px 20px; transition: right 0.4s ease-in-out; display: flex; flex-direction: column; }
+.mobile-nav-panel.open { right: 0; }
+.mobile-menu-close { position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.8em; color: #333; cursor: pointer; }
+.mobile-nav-links { flex-direction: column; margin-bottom: 30px; }
+.mobile-nav-links li { margin: 0; width: 100%; }
+.mobile-nav-links a { display: block; padding: 12px 0; border-bottom: 1px solid #eee; color: #333; font-weight: 500; }
+.mobile-nav-links a:hover, .mobile-nav-links a.active { color: #1976d2; }
+.mobile-nav-links a.active::after { display: none; }
+.mobile-auth-buttons { display: flex; flex-direction: column; }
+.mobile-auth-buttons .btn { width: 100%; margin-bottom: 10px; }
+.mobile-auth-buttons .btn:last-child { margin-bottom: 0; }
+
+/* --- Hero Slider Section --- */
+.hero-slider-wrapper {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; 
+    position: relative; 
+}
+
+.hero-slides-container {
+    display: flex; 
+    height: 100%;
+    /* IMPORTANT: Transition for the slide movement */
+    transition: transform 0.8s ease-in-out; 
+}
+
+.hero-slide-item {
+    width: 100%; 
+    height: 100%;
+    flex-shrink: 0; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start; 
+    color: #fff; 
+}
+
+.hero-slide-item .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55); 
+    z-index: 1; 
+}
+
+.hero-slide-item .hero-content {
+    position: relative;
+    z-index: 2; 
+    max-width: 750px; 
+    padding: 0 40px; 
+    text-align: left; 
+}
+
+/* Base styles and TRANSITIONS for content elements */
+.hero-slide-item .hero-content .sub-heading,
+.hero-slide-item .hero-content .main-heading,
+.hero-slide-item .hero-content .description,
+.hero-slide-item .hero-content .btn-hero {
+    /* This transition applies when opacity or transform changes on these elements */
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+/* Ensure button's own hover transition for background is also present */
+.hero-slide-item .hero-content .btn-hero {
+    transition: background-color 0.3s ease, opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.hero-slide-item .hero-content .sub-heading { font-size: 1.2em; font-weight: 400; margin-bottom: 15px; color: #e0e0e0; }
+.hero-slide-item .hero-content .main-heading { font-size: 3.8em; font-weight: 700; line-height: 1.15; margin-bottom: 25px; text-transform: uppercase; }
+.hero-slide-item .hero-content .description { font-size: 1.15em; margin-bottom: 35px; max-width: 650px; }
+.hero-slide-item .btn-hero { background-color: #1976d2; color: #fff; padding: 15px 35px; font-size: 1.1em; font-weight: bold; border-radius: 5px; text-transform: uppercase; }
+.hero-slide-item .btn-hero:hover { background-color: #1565c0; }
+
+/* Animation State Classes for Content */
+.content-animate-init { 
+    opacity: 0;
+    transform: translateY(100px); 
+}
+.content-animate-final { 
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+/* Staggered Animation Delays */
+.hero-slide-item .hero-content .sub-heading.content-animate-final { transition-delay: 0.1s !important; }
+.hero-slide-item .hero-content .main-heading.content-animate-final { transition-delay: 0.3s !important; }
+.hero-slide-item .hero-content .description.content-animate-final { transition-delay: 0.5s !important; }
+.hero-slide-item .hero-content .btn-hero.content-animate-final { transition-delay: 0.7s !important; }
+
+/* Optional Slider Arrows Styling */
+.slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0,0,0,0.3); color: white; border: none; padding: 12px 18px; font-size: 24px; cursor: pointer; z-index: 5; border-radius: 50%; line-height: 1; transition: background-color 0.3s ease; }
+.slider-arrow.prev { left: 30px; }
+.slider-arrow.next { right: 30px; }
+.slider-arrow:hover { background-color: rgba(0,0,0,0.6); }
+
+/* Responsive Design - Same as previous stable version */
+@media (max-width: 992px) { .main-nav .container { justify-content: space-between; } .nav-links, .auth-buttons { display: none; } .mobile-menu-toggle { display: block; } .hero-slide-item .hero-content .main-heading { font-size: 2.8em; } .hero-slide-item .hero-content .description { font-size: 1.1em; } .hero-slide-item .hero-content { padding: 0 30px; } }
+@media (max-width: 768px) { .top-bar { display: none; } .logo img { height: 40px; } .logo span { font-size: 1em; } .hero-slide-item .hero-content { padding: 0 20px; } .hero-slide-item .hero-content .main-heading { font-size: 2.4em; } .hero-slide-item .hero-content .description { font-size: 1em; } .hero-slide-item .btn-hero { padding: 12px 25px; font-size: 1em; } .slider-arrow { padding: 10px 15px; font-size: 20px; } .slider-arrow.prev { left: 15px; } .slider-arrow.next { right: 15px; } }
+@media (max-width: 480px) { .hero-slide-item .hero-content .main-heading { font-size: 2em; } .hero-slide-item .hero-content .description { font-size: 0.9em; } .hero-slide-item .hero-content { padding: 0 15px; } }
+
+/* --------------------client------------- */
+
+.container { /* Yeh class pehle se define ho sakti hai aapke project mein */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Trusted By Section Styling */
+.trusted-by-section {
+    padding: 60px 0; /* Upar neeche padding */
+    background-color: #f8f9fa; /* Halki si background color, aapki marzi */
+    overflow: hidden; /* Zaroori hai taake horizontal scroll bar na aaye */
+}
+
+.trusted-by-section h2 { /* Agar aap heading daalte hain */
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+    color: #333;
+}
+
+.logos-slider {
+    width: 100%;
+    position: relative; /* Agar future mein arrows add karne hon */
+}
+
+.logos-track {
+    display: flex; /* Logos ko horizontal line mein rakhega */
+    /* Width = (Number of original logos + Number of duplicated logos) * (logo width + logo margin) */
+    /* Hamare paas 6 original + 6 duplicate = 12 items */
+    /* Farz karein har logo 150px aur margin 40px (20px left + 20px right) */
+    /* (150px width + 40px margin-left/right) * 12 items */
+    width: calc(12 * (150px + 60px)); /* Example: 150px width, 30px margin on each side */
+    animation: scrollLogos 30s linear infinite; /* Animation ka naam, duration, timing, aur loop */
+}
+
+.logo-item {
+    flex-shrink: 0; /* Logos ko chhota hone se rokega */
+    width: 150px; /* Logo ki width */
+    margin: 0 30px; /* Logos ke darmiyan spacing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-item img {
+    max-width: 100%; /* Image ko item ke andar fit karega */
+    max-height: 50px; /* Example height, adjust as needed */
+    filter: grayscale(100%); /* Initially greyscale */
+    opacity: 0.7; /* Thori si transparency */
+    transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+}
+
+.logo-item:hover img {
+    filter: grayscale(0%); /* Hover par original color */
+    opacity: 1; /* Full opacity on hover */
+}
+
+/* Keyframes for Scrolling Animation */
+@keyframes scrollLogos {
+    0% {
+        transform: translateX(0); /* Shuru mein original position */
+    }
+    100% {
+        /* Ek poore set (6 logos) ki width tak move karega */
+        /* (150px width + 60px total margin) * 6 items */
+        transform: translateX(calc(-6 * (150px + 60px)));
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .logos-track {
+        /* Mobile par animation speed ya logo size kam kar sakte hain */
+        /* Ya utne hi logos rakhein aur woh thore chote nazar ayenge */
+        animation-duration: 25s; /* Thori tez animation */
+    }
+    .logo-item {
+        width: 120px; /* Chote screens par logo thora chota */
+        margin: 0 20px;
+    }
+    /* Recalculate track width and animation transform for smaller items if needed, */
+    /* but usually the flex nature handles it. The animation translateX needs to be updated if item sizes change significantly. */
+    /* For simplicity, we keep the animation transform based on original calculation, */
+    /* which means the scroll distance remains same, visually it's fine. */
+}
+
+@media (max-width: 480px) {
+    .logo-item {
+        width: 100px;
+        margin: 0 15px;
+    }
+    .logo-item img {
+        max-height: 40px;
+    }
+}
+
+/* Optional: Pause animation on hover over the track */
+
+.logos-track:hover {
+    animation-play-state: paused;
+}
+
+
+/* ------------about---------------- */
+/* About Us Section Styling */
+.about-us-section {
+    padding: 80px 0;
+    background-color: #fff; /* Ya jo bhi background color ho */
+}
+
+.about-us-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* Left column thora bara, right thora chota */
+    gap: 50px; /* Columns ke darmiyan gap */
+    align-items: flex-start; /* Content ko upar se align karega */
+}
+
+.about-text-content .section-tag {
+    display: inline-block;
+    color: #6a1b9a; /* Purple color (aap apni pasand ka hex code use karein) */
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.about-text-content h2 {
+    font-size: 2.8em; /* Bara heading */
+    color: #1a237e; /* Aapka primary dark blue color */
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.about-text-content > p { /* Paragraph directly under about-text-content */
+    font-size: 1.05em;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Do columns expertise aur support ke liye */
+    gap: 30px;
+}
+
+.feature-item {
+    text-align: left; /* Default, aap center bhi kar sakte hain */
+}
+
+.feature-icon-wrapper {
+    margin-bottom: 15px;
+}
+
+.feature-item .fas { /* Font Awesome Icons */
+    font-size: 2.5em; /* Icon ka size */
+    color: #6a1b9a; /* Purple color */
+}
+
+.feature-item h3 {
+    font-size: 1.3em;
+    color: #1a237e; /* Dark blue */
+    margin-bottom: 10px;
+    cursor: pointer; /* Taake user ko pata chale ke yeh clickable hai */
+    position: relative; /* Underline ke liye */
+    padding-bottom: 5px; /* Underline ke liye jaga */
+    display: inline-block; /* Taake underline sirf text ke neeche aaye */
+}
+
+.feature-item p {
+    font-size: 0.95em;
+    color: #666;
+}
+
+/* Image Collage Styling */
+.about-image-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-image-collage {
+    position: relative; /* Taake overlay images iske relative position hon */
+    margin-bottom: 30px; /* Link se thora fasla */
+    align-self: flex-start; /* Content ke hisab se width adjust karega */
+    max-width: 100%;
+}
+
+.about-image-collage .main-image {
+    width: 100%;
+    max-width: 500px; /* Adjust max-width as per your design */
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: block;
+}
+
+.about-image-collage .overlay-image {
+    position: absolute;
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border: 3px solid white; /* Optional border */
+}
+
+.about-image-collage .image-top-right {
+    width: 45%; /* Main image ke relative */
+    top: -40px; /* Thora upar */
+    right: -50px; /* Thora right */
+    z-index: 2;
+}
+
+.about-image-collage .image-bottom-right {
+    width: 55%; /* Main image ke relative */
+    bottom: -50px; /* Thora neeche */
+    right: -20px; /* Thora right, upar wali se kam */
+    z-index: 1; /* Upar wali image ke neeche */
+}
+
+.learn-more-link {
+    color: #1976d2; /* Blue color */
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block; /* Taake underline sirf text ke neeche aaye */
+    position: relative; /* Underline ke liye */
+    padding-bottom: 5px; /* Underline ke liye jaga */
+    font-size: 1em;
+    align-self: flex-start; /* Link ko left align karega agar image content chota hai */
+}
+
+.learn-more-link .fas {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.learn-more-link:hover .fas {
+    transform: translateX(5px); /* Arrow ko hover par thora move karega */
+}
+
+/* Underline Animation (Applied by JS with .active class) */
+.interactive-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Initially no width */
+    height: 2.5px; /* Underline ki thickness */
+    background-color: #1976d2; /* Blue color */
+    transition: width 0.35s ease-in-out; /* Smooth animation */
+}
+
+.interactive-underline.active::after {
+    width: 100%; /* Full width jab active ho */
+}
+
+
+/* Scroll to Top Button Styling (Optional) */
+#scrollToTopBtn {
+    display: none; /* Initially hidden */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    border: none;
+    outline: none;
+    background-color: #1976d2; /* Blue */
+    color: white;
+    cursor: pointer;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #1565c0; /* Darker blue */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) { /* Tablet view */
+    .about-us-grid {
+        grid-template-columns: 1fr; /* Columns ko stack karega */
+        gap: 40px;
+    }
+    .about-text-content h2 {
+        font-size: 2.4em;
+    }
+    .about-image-collage {
+        margin-top: 30px; /* Text se thora fasla */
+        margin-left: auto; /* Agar image content chota ho toh center karne ki koshish */
+        margin-right: auto;
+        max-width: 450px; /* Image collage ko thora chota karega */
+    }
+     .about-image-collage .image-top-right {
+        right: -30px;
+        top: -30px;
+    }
+    .about-image-collage .image-bottom-right {
+        bottom: -30px;
+        right: -10px;
+    }
+    .learn-more-link {
+        align-self: center; /* Link ko center mein karega */
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) { /* Mobile view */
+    .about-text-content h2 {
+        font-size: 2em;
+    }
+    .features-grid {
+        grid-template-columns: 1fr; /* Features ko bhi stack karega */
+        gap: 30px;
+    }
+    .feature-item {
+        text-align: center; /* Mobile par feature items ko center karega */
+    }
+    .feature-item h3 {
+        display: inline-block; /* Taake underline sahi rahe */
+    }
+     .about-image-collage {
+        max-width: 350px; /* Aur chota karega image collage ko */
+    }
+    .about-image-collage .image-top-right {
+        width: 50%;
+        right: -20px;
+        top: -20px;
+    }
+    .about-image-collage .image-bottom-right {
+        width: 60%;
+        bottom: -20px;
+        right: -5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-text-content h2 {
+        font-size: 1.8em;
+    }
+    .about-image-collage {
+        max-width: 100%; /* Full width le le, lekin overlay images ko adjust karna par sakta hai */
+        margin-left: 10px; /* Thora ofset taake edge par na chipke */
+        margin-right: 10px;
+    }
+    .about-image-collage .main-image {
+        max-width: none; /* Allow it to be wider */
+    }
+    .about-image-collage .overlay-image { /* Overlay images ko thora andar karega taake screen se bahar na jayein */
+        border-width: 2px;
+    }
+    .about-image-collage .image-top-right {
+        width: 40%;
+        top: -15px;
+        right: -10px; 
+    }
+    .about-image-collage .image-bottom-right {
+        width: 50%;
+        bottom: -15px;
+        right: 5px; 
+    }
+}
+/* ----------use car------- */
+/* Basic Reset & Global (Agar pehle se nahi hai) */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; }
+.container { max-width: 1200px; /* Aapke design ke mutabiq */ margin: 0 auto; padding: 0 20px; }
+
+/* Why Choose Us Section - Dark Theme Styling */
+.why-choose-us-section.dark-theme {
+    background-color: #201F34; /* Very Dark Blue/Purple (Approximate from screenshot) */
+    color: #FFFFFF; /* Default text color for this section */
+    padding: 60px 0;
+    text-align: center; 
+    position: relative;
+    height: 600px;
+}
+
+.why-choose-us-section.dark-theme .section-tag-darkbg {
+    display: inline-block;
+    color: #9E9E9E; /* Light grey for tag */
+    font-size: 0.85em;
+    font-weight: 500;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.why-choose-us-section.dark-theme h2 {
+    position: absolute;
+    top: 50px;
+    left: 340px;
+    font-size: 2.8em; 
+    color: #FFFFFF;
+    margin-bottom: 60px; 
+    line-height: 1.3;
+    text-align: center;
+}
+
+.choose-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); /* Responsive columns */
+    gap: 25px; 
+    text-align: left; 
+
+    overflow-x: auto;
+    padding-bottom: 10px;
+    margin-top: 130px !important;
+}
+
+.choose-us-card {
+
+flex: 0 0 270px; 
+
+    background-color: #2A2845; /* Slightly lighter shade than section bg */
+    padding: 35px 30px 40px 30px; 
+    /* Slightly rounded corners */
+    position: relative; 
+    overflow: hidden; /* For the icon's half-circle effect */
+    transition: background-color 0.35s ease, color 0.35s ease, transform 0.3s ease;
+    min-height: 350px; 
+    display: flex;
+    flex-direction: column; 
+    color: #E0E0E0; /* Initial text color for card content */
+}
+
+.choose-us-card:hover {
+    background-color: #FFFFFF; 
+    color: #121230; /* Dark text on white background */
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Subtle shadow on hover */
+}
+
+.card-bg-number {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    font-size: 5.5em; 
+    font-weight: 800; /* Bolder */
+    color: rgba(255, 255, 255, 0.04); 
+    z-index: 0; /* Behind card content */
+    line-height: 1;
+    transition: color 0.35s ease;
+}
+
+.choose-us-card:hover .card-bg-number {
+    color: rgba(42, 40, 69, 0.06); /* Darker, faint number on white background */
+}
+
+.card-content {
+    position: relative;
+    z-index: 1; /* Above background number */
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    font-size: 1.5em; /* Thora bara card heading */
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #FFFFFF; /* Heading color initial */
+    transition: color 0.35s ease;
+}
+
+.choose-us-card:hover .card-content h3 {
+    color: #1A237E; /* Dark blue heading on hover */
+}
+
+.card-content p {
+    font-size: 0.95em;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    flex-grow: 1; 
+    /* Initial text color (E0E0E0) card se inherit hoga */
+    opacity: 0.85; /* Thori si transparency initial paragraph par */
+}
+.choose-us-card:hover .card-content p {
+    color: #555770; /* Paragraph text color on hover */
+    opacity: 1;
+}
+
+.learn-more-card {
+    color: #82B1FF; /* Light blue link color (initial state) */
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex; 
+    align-items: center;
+    transition: color 0.3s ease; /* Arrow transform alag se handle hoga */
+    margin-top: auto; 
+    font-size: 0.9em;
+}
+
+.choose-us-card:hover .learn-more-card {
+    color: #2962FF; /* Vibrant blue on white background hover */
+}
+
+.learn-more-card .arrow-icon {
+    margin-right: 8px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smooth arrow movement */
+}
+
+.learn-more-card:hover .arrow-icon {
+    transform: translateX(6px); /* Arrow ko aage move karega */
+}
+
+/* Icon Styling at bottom right */
+.card-icon-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80px;  /* Control the size of the circular area */
+    height: 80px; /* Same as width for a full circle base */
+    overflow: hidden; /* Not strictly needed if bg is a circle and positioned */
+    z-index: 0; /* Taake content ke peeche rahe */
+}
+
+.card-icon-bg {
+    width: 150px; /* Circle ko thora bara banayein taake corner effect aye */
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.05); /* Very faint initial circle color */
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -75px; /* Half neeche (100px height ka आधा) */
+    right: -75px;  /* Half right */
+    transition: background-color 0.35s ease;
+}
+
+.choose-us-card:hover .card-icon-bg {
+    background-color: #64B5F6; /* Sky blue on hover (match screenshot) */
+}
+
+.card-icon-bg .fas { /* Font Awesome icon inside */
+    font-size: 1.5em; /* Icon ka size */
+    color: #FFFFFF; /* Icon hamesha white */
+    transform: translate(-25px, -25px); /* Icon ko circle ke visible area mein adjust karega */
+}
+
+
+/* Scroll to Top Button Styling (agar use kar rahe hain) */
+/* #scrollToTopBtn { ... } */
+
+
+/* Responsive Adjustments */
+@media (max-width: 1100px) { /* Adjust breakpoint if needed */
+    .choose-us-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+@media (max-width: 992px) { /* Tablet view */
+    .why-choose-us-section.dark-theme h2 {
+        font-size: 2.4em;
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 768px) { /* Mobile view */
+    .why-choose-us-section.dark-theme h2 {
+        font-size: 2em;
+    }
+    .choose-us-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+     .choose-us-card {
+        min-height: auto; 
+        padding-bottom: 40px; 
+    }
+    .card-bg-number {
+        font-size: 4.5em;
+        top: 15px;
+        left: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .why-choose-us-section.dark-theme h2 {
+        font-size: 1.8em;
+    }
+     .card-content h3 {
+        font-size: 1.3em;
+    }
+    .card-content p {
+        font-size: 0.9em;
+    }
+    .card-icon-container { width: 70px; height: 70px; }
+    .card-icon-bg { width: 90px; height: 90px; bottom: -45px; right: -45px; }
+    .card-icon-bg .fas { font-size: 1.3em; transform: translate(-13px, -13px); }
+}
+
+
+
+
+
+
+.choose-us-grid {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.choose-us-card {
+    flex: 0 0 270px; /* Fixed width for horizontal scroll */
+}
+
+
+/* Stats Section Styling */
+.stats-section {
+    padding: 0; /* Section par koi padding nahin, cards full height/width parts lenge */
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Do barabar columns */
+}
+
+.stat-card {
+    position: relative; /* Overlay aur decorative shape ke liye */
+    padding: 70px 60px; /* Card ke andar content ke liye padding */
+    color: #FFFFFF; /* Text color */
+    
+    /* === USER ACTION: Background Image === */
+    /* background-image: url('path/to/your-image.jpg'); Yahan image lagayen */
+    background-color: #333; /* Fallback agar image load na ho */
+    background-size: cover;
+    background-position: center;
+    
+    overflow: hidden; /* Decorative shape ko clip karne ke liye zaroori */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    height: 280px; /* Card ki kam se kam height */
+}
+
+/* Yahan aap specific cards ke liye background images set karenge */
+.stat-card.left-card {
+    background-image: url('/hero/stats/stats-1.jpg'); 
+}
+.stat-card.right-card {
+    background-image: url('/hero/stats/stats-2.jpg'); /* Example */
+}
+
+.stat-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Content ke peeche, background image ke upar */
+}
+.stat-card.left-card .stat-card-overlay {
+    background-color: rgba(30, 40, 80, 0.75); /* Darker Blueish Overlay */
+}
+.stat-card.right-card .stat-card-overlay {
+    background-color: rgba(50, 40, 90, 0.75); /* Darker Purplish Overlay */
+}
+
+.stat-card-content {
+    position: relative;
+    z-index: 2; /* Overlay ke upar */
+    max-width: 450px; /* Content ki max width */
+}
+
+/* Right card mein content ko right side par align karne ke liye (agar design mein aisa hai) */
+.stat-card.right-card .stat-card-content {
+    margin-left: auto; 
+    /* text-align: right; Agar text bhi right align karna ho */
+}
+
+.stat-value {
+    display: flex;
+    align-items: baseline; /* Numbers aur plus ko baseline par align karega */
+    margin-bottom: 5px;
+}
+
+.stat-number {
+    font-size: 6.5em; /* Bara number */
+    font-weight: 700;
+    line-height: 1;
+}
+
+.plus-sign {
+    font-size: 3.5em; /* Plus sign number se thora chota */
+    font-weight: 700;
+    line-height: 1;
+    margin-left: 8px;
+    /* vertical-align: super; Ya baseline se adjust karein */
+}
+
+.stat-card h3 {
+    font-size: 1.9em;
+    font-weight: 600;
+    margin-top: 0px; 
+    margin-bottom: 15px;
+}
+
+.stat-card p {
+    font-size: 1em;
+    line-height: 1.75;
+    opacity: 0.9;
+    max-width: 400px; /* Paragraph ki width ko control karega */
+}
+
+/* Decorative Shapes */
+.decorative-shape {
+    position: absolute;
+    width: 25%; /* Card ki width ka percentage */
+    max-width: 320px; /* Max width for shape */
+    height: 100%; 
+    top: 0;
+    z-index: 2; /* Content ke saath level par ya thora upar */
+    opacity: 0.85; 
+}
+
+.decorative-shape.shape-blue {
+    background-color: #29B6F6; /* Sky blue color */
+    right: 0;
+    /* Angled shape from top-left to bottom-left, then to bottom-right and top-right */
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%); 
+}
+
+.decorative-shape.shape-purple {
+    background-color: #7E57C2; /* Purple color */
+    left: 0; 
+    /* Opposite angle */
+    clip-path: polygon(0% 0%, 75% 0%, 100% 100%, 0% 100%); 
+}
+
+
+/* Slide-in Animations (Initially hidden) */
+.animate-on-scroll {
+    opacity: 0; 
+    transition: opacity 0.7s ease-out, transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing */
+}
+
+.slide-in-left {
+    transform: translateX(-120px); /* Shuru mein left se thora zyada bahar */
+}
+
+.slide-in-right {
+    transform: translateX(120px); /* Shuru mein right se thora zyada bahar */
+}
+
+/* Visible state (Applied by JS) */
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateX(0); /* Apni asal jagah par aa jayega */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) { /* Tablets */
+    .stat-card {
+        padding: 60px 40px;
+        min-height: 420px;
+    }
+    .stat-number { font-size: 5.5em; }
+    .plus-sign { font-size: 3em; }
+    .stat-card h3 { font-size: 1.7em; }
+    .decorative-shape { width: 35%; max-width: 280px; }
+}
+
+@media (max-width: 768px) { /* Mobile view - cards stack honge */
+    .stats-grid {
+        grid-template-columns: 1fr; /* Ek column */
+    }
+    .stat-card {
+        min-height: 400px; /* Stacked cards ke liye height */
+        padding: 50px 30px;
+    }
+    .stat-card.right-card .stat-card-content {
+        margin-left: 0; /* Stack hone par content left align rahega */
+    }
+    .stat-number { font-size: 5em; }
+    .plus-sign { font-size: 2.8em; }
+    .stat-card h3 { font-size: 1.6em; }
+    
+    .decorative-shape.shape-blue {
+        clip-path: polygon(30% 0, 100% 0, 100% 100%, 5% 100%);
+        width: 45%;
+    }
+    .decorative-shape.shape-purple {
+        clip-path: polygon(0 0, 70% 0, 95% 100%, 0% 100%);
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) { /* Smaller mobiles */
+    .stat-card {
+        padding: 40px 25px;
+        min-height: 360px;
+    }
+    .stat-number { font-size: 4em; }
+    .plus-sign { font-size: 2.2em; }
+    .stat-card h3 { font-size: 1.4em; }
+    .stat-card p { font-size: 0.95em; }
+
+    .decorative-shape { display: none; } /* Choti screens par shapes hide kar dein agar design complex ho raha ho */
+}
+/* ----------setvice---- */
+.services-section {
+  padding: 20px 20px 60px 20px;
+  background: #fff;
+  position: relative;
+}
+
+.container {
+    
+  max-width: 1200px;
+  margin: auto;
+}
+
+.subheading {
+    position: absolute;
+    top: 20px;
+    left: 100px;
+  text-align: center;
+  color: #7D3CF8;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.heading {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 50px;
+  color: #121230;
+  line-height: 1.4;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+
+.service-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  text-align: left;
+  border: 1px solid #eee;
+  min-height: 250px;
+}
+
+.service-card .icon {
+  font-size: 38px;
+  color: #7D3CF8;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #121230;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 16px;
+  color: #555;
+}
+
+.service-card:hover .icon {
+  color: #3B82F6;
+}
+
+.service-card:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+  transform: translateY(-5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+
